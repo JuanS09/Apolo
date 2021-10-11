@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
 import { collection, addDoc } from "firebase/firestore";
+import './styles/RepAverias.css';
 
 const RepAverias = (props) => {
     const [IdContrato, setIdContrato] = useState("");
@@ -31,15 +32,16 @@ const RepAverias = (props) => {
         }
 
         return(
-           <div>
+           <div className="Contenedor">
             <form className = "Formulario"
             onSubmit = {
                 Validar
             } >
-            <h1> Reportar Avería </h1>
-            
-            < label > IdContrato </label> 
-            <input placeholder = "Id Contrato"
+            <div className= "form-header">
+                <h1 className= "form-titulo"> Reportar Avería </h1>
+            </div>
+            < label className="form-label"> IdContrato </label> 
+            <input className="form-input" placeholder = "Id Contrato"
             value = {
                 IdContrato
             }
@@ -48,8 +50,8 @@ const RepAverias = (props) => {
             }
             />
 
-            <label > Observacion </label> 
-            <input placeholder = "Observación"
+            <label className="form-label"> Observacion </label> 
+            <input className="form-input" placeholder = "Observación"
             value = {
                 Observacion
             }
@@ -58,8 +60,8 @@ const RepAverias = (props) => {
             }
             />
 
-            <label > Averia </label> 
-            <input placeholder = "Avería"
+            <label className="form-label"> Averia </label> 
+            <input className="form-input" placeholder = "Avería"
             value = {
                 Averia
             }
@@ -68,7 +70,7 @@ const RepAverias = (props) => {
             }
             />
 
-            <Button variant = "contained"
+            <Button className="boton" variant = "contained"
             color = "primary"
             component = "span"
             onClick = {handleAgregarClick}>

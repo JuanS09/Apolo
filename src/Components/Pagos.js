@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
 import { collection, addDoc } from "firebase/firestore";
+import './styles/Pagos.css';
 
 const Pagos = (props) => {
     const [NumeroContrato, setNumeroContrato] = useState("");
@@ -37,15 +38,17 @@ const Pagos = (props) => {
         }
 
         return(
-           <div>
+           <div className="Contenedor">
             <form className = "Formulario"
             onSubmit = {
                 Validar
             } >
-            <h1> Pagos </h1>
             
-            < label > Numero </label> 
-            <input placeholder = "Número de Contrato"
+            <div className="form-header">
+                <h1 className="form-titulo"> Pagos </h1>
+            </div>
+            < label className="form-label"> Número </label> 
+            <input className="form-input" placeholder = "Número de Contrato"
             value = {
                 NumeroContrato
             }
@@ -54,8 +57,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label > Nombre </label> 
-            <input placeholder = "Nombre Cliente"
+            <label className="form-label"> Nombre </label> 
+            <input className="form-input" placeholder = "Nombre Cliente"
             value = {
                 NombreCliente
             }
@@ -64,8 +67,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label > Apellidos </label> 
-            <input placeholder = "Apellidos Cliente"
+            <label className="form-label"> Apellidos </label> 
+            <input className="form-input" placeholder = "Apellidos Cliente"
             value = {
                 ApellidoCliente
             }
@@ -74,8 +77,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label > Dirección </label> 
-            <input placeholder = "Dirección Cliente"
+            <label className="form-label"> Dirección </label> 
+            <input className="form-input" placeholder = "Dirección Cliente"
             value = {
                 DirecciónCliente
             }
@@ -84,8 +87,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label > Subtotal </label> 
-            <input placeholder = "Subtotal"
+            <label className="form-label"> Subtotal </label> 
+            <input className="form-input" placeholder = "Subtotal"
             value = {
                 Subtotal
             }
@@ -94,8 +97,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label> Total </label> 
-            <input placeholder = "Total"
+            <label className="form-label"> Total </label> 
+            <input className="form-input" placeholder = "Total"
             value = {
                 Total
             }
@@ -104,7 +107,7 @@ const Pagos = (props) => {
             }
             />
 
-            <Button variant = "contained"
+            <Button className="boton" variant = "contained"
             color = "primary"
             component = "span"
             onClick = {handleAgregarClick}>

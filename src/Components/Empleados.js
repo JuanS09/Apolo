@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './styles/Empleados.css';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
 import { collection, addDoc } from "firebase/firestore";
+import './styles/Empleados.css';
 
 const Empleados = (props) => {
     const [Cédula, setCedula] = useState("");
@@ -38,15 +38,18 @@ const Empleados = (props) => {
         }
 
         return(
-           <div>
+           <div className="Contenedor">
             <form className = "Formulario"
             onSubmit = {
                 Validar
             } >
-            <h1> Registro Nuevo Empleado </h1>
-            
-            < label > Cédula </label> 
-            <input placeholder = "Cédula Empleado"
+
+            <div className="form-header">
+                <h1 className="form-titulo"> Registro Nuevo Empleado </h1>
+            </div>
+
+            < label className="form-label"> Cédula </label> 
+            <input className="form-input" placeholder = "Cédula Empleado"
             value = {
                 Cédula
             }
@@ -55,8 +58,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label > Nombre </label> 
-            <input placeholder = "Nombre Empleado"
+            <label className="form-label"> Nombre </label> 
+            <input className="form-input" placeholder = "Nombre Empleado"
             value = {
                 Nombre
             }
@@ -65,8 +68,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label > Apellidos </label> 
-            <input placeholder = "Apellidos Empleado"
+            <label className="form-label"> Apellidos </label> 
+            <input className="form-input" placeholder = "Apellidos Empleado"
             value = {
                 Apellidos
             }
@@ -75,8 +78,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label > Dirección </label> 
-            <input placeholder = "Dirección Empleado"
+            <label className="form-label"> Dirección </label> 
+            <input className="form-input" placeholder = "Dirección Empleado"
             value = {
                 Dirección
             }
@@ -85,8 +88,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label > Ciudad </label> 
-            <input placeholder = "Ciudad Empleado"
+            <label className="form-label"> Ciudad </label> 
+            <input className="form-input" placeholder = "Ciudad Empleado"
             value = {
                 Ciudad
             }
@@ -95,8 +98,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label> Teléfono </label> 
-            <input placeholder = "Teléfono Empleado"
+            <label className="form-label"> Teléfono </label> 
+            <input className="form-input" placeholder = "Teléfono Empleado"
             value = {
                 Teléfono
             }
@@ -105,7 +108,8 @@ const Empleados = (props) => {
             }
             />
 
-            <Button variant = "contained"
+            <Button className="boton" 
+            variant = "contained"
             color = "primary"
             component = "span"
             onClick = {handleAgregarClick}>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
 import { collection, addDoc } from "firebase/firestore";
+import './styles/Contrato.css';
 
 const Contrato = (props) => {
     const [Cédula, setCedula] = useState("");
@@ -47,15 +48,18 @@ const Contrato = (props) => {
         }
 
         return( <>
-           <div>
-            <form className = "Formulario"
+           <div className="Cont">
+            <form className = "Formula"
             onSubmit = {
                 Validar
             } >
-            <h1> Registro Nuevo Contrato </h1>
-            
-            < label > Cédula </label> 
-            <input placeholder = "Cédula Cliente"
+
+            <div className="form-head">
+                <h1 className="form-tit"> Registro Nuevo Contrato </h1>
+            </div>
+
+            < label className="form-lab"> Cédula </label> 
+            <input className="form-inp" placeholder = "Cédula Cliente"
             value = {
                 Cédula
             }
@@ -64,8 +68,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Nombre </label> 
-            <input placeholder = "Nombre Cliente"
+            <label className="form-lab"> Nombre </label> 
+            <input className="form-tit" placeholder = "Nombre Cliente"
             value = {
                 Nombre
             }
@@ -74,8 +78,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Apellidos </label> 
-            <input placeholder = "Apellidos Cliente"
+            <label className="form-lab"> Apellidos </label> 
+            <input className="form-inp" placeholder = "Apellidos Cliente"
             value = {
                 Apellidos
             }
@@ -84,8 +88,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Dirección </label> 
-            <input placeholder = "Dirección Cliente"
+            <label className="form-lab"> Dirección </label> 
+            <input className="form-inp" placeholder = "Dirección Cliente"
             value = {
                 Dirección
             }
@@ -94,8 +98,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Ciudad </label> 
-            <input placeholder = "Ciudad Cliente"
+            <label className="form-lab"> Ciudad </label> 
+            <input className="form-inp" placeholder = "Ciudad Cliente"
             value = {
                 Ciudad
             }
@@ -104,8 +108,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label> Teléfono </label> 
-            <input placeholder = "Teléfono Cliente"
+            <label className="form-lab"> Teléfono </label> 
+            <input className="form-inp" placeholder = "Teléfono Cliente"
             value = {
                 Teléfono
             }
@@ -113,18 +117,9 @@ const Contrato = (props) => {
                 (e) => setTeléfono(e.target.value)
             }
             />
-            </form>
-            </div>
-            
-            <div>
-            <form className = "Form"
-            onSubmit = {
-                Validar
-            } >
-            <h1> Servicio Contratado </h1>
-            
-            < label > Servicio </label> 
-            <input placeholder = "Servicio"
+
+            < label className="form-lab"> Servicio </label> 
+            <input className="form-inp" placeholder = "Servicio"
             value = {
                 Servicio
             }
@@ -133,8 +128,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Ciudad </label> 
-            <input placeholder = "Ciudad"
+            <label className="form-lab"> Ciudad </label> 
+            <input className="form-inp" placeholder = "Ciudad"
             value = {
                 CiudServ
             }
@@ -143,8 +138,8 @@ const Contrato = (props) => {
             }
             />
             
-            <label > Direccion </label> 
-            <input placeholder = "Dirección"
+            <label className="form-lab"> Direccion </label> 
+            <input className="form-inp" placeholder = "Dirección"
             value = {
                 DirectServ
             }
@@ -153,8 +148,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Observación </label> 
-            <input placeholder = "Observación"
+            <label className="form-lab"> Observación </label> 
+            <input className="form-inp" placeholder = "Observación"
             value = {
                 ObServ
             }
@@ -163,8 +158,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label > Costo </label> 
-            <input placeholder = "Costo"
+            <label className="form-lab"> Costo </label> 
+            <input className="form-inp" placeholder = "Costo"
             value = {
                 CostServ
             }
@@ -173,14 +168,15 @@ const Contrato = (props) => {
             }
             />
 
-            <Button variant = "contained"
+            <Button className="btn"
+            variant = "contained"
             color = "primary"
             component = "span"
             onClick = {handleAgregarClick}>
             Agregar 
-            </Button> 
+            </Button>
             </form>
-            </div> 
+            </div>
             </>
         )
     
