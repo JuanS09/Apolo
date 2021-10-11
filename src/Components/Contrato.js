@@ -48,7 +48,8 @@ const Contrato = (props) => {
         }
 
         return( <>
-           <div className="Cont">
+           <div className= "Principal">
+           <div className="Contened">
             <form className = "Formula"
             onSubmit = {
                 Validar
@@ -69,7 +70,7 @@ const Contrato = (props) => {
             />
 
             <label className="form-lab"> Nombre </label> 
-            <input className="form-tit" placeholder = "Nombre Cliente"
+            <input className="form-inp" placeholder = "Nombre Cliente"
             value = {
                 Nombre
             }
@@ -117,6 +118,17 @@ const Contrato = (props) => {
                 (e) => setTeléfono(e.target.value)
             }
             />
+            </form>
+            </div>
+            <div>
+            <form className = "Form"
+            onSubmit = {
+                Validar
+            } >      
+
+            <div className="form-head">
+                <h1 className="form-tit"> Servicio Contratado </h1>
+            </div>
 
             < label className="form-lab"> Servicio </label> 
             <input className="form-inp" placeholder = "Servicio"
@@ -177,9 +189,10 @@ const Contrato = (props) => {
             </Button>
             </form>
             </div>
+            </div>
             </>
         )
     
 }
 
-export default Contrato    
+export default Contrato   
