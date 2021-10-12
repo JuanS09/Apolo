@@ -49,6 +49,7 @@ const Contrato = (props) => {
 
         return( <>
            <div className= "Principal">
+             
            <div className="Contened">
             <form className = "Formula"
             onSubmit = {
@@ -56,7 +57,7 @@ const Contrato = (props) => {
             } >
 
             <div className="form-head">
-                <h1 className="form-tit"> Registro Nuevo Contrato </h1>
+                <h1 className="form-tit"> Registro de Cliente </h1>
             </div>
 
             < label className="form-lab"> Cédula </label> 
@@ -120,18 +121,18 @@ const Contrato = (props) => {
             />
             </form>
             </div>
-            <div>
-            <form className = "Form"
+            <div className="Contened2">
+            <form className = "Form2"
             onSubmit = {
                 Validar
             } >      
 
-            <div className="form-head">
-                <h1 className="form-tit"> Servicio Contratado </h1>
+            <div className="form-head2">
+                <h1 className="form-tit2"> Registro de Servicio </h1>
             </div>
 
-            < label className="form-lab"> Servicio </label> 
-            <input className="form-inp" placeholder = "Servicio"
+            < label className="form-lab2"> Servicio </label> 
+            <input className="form-inp2" placeholder = "Servicio"
             value = {
                 Servicio
             }
@@ -140,8 +141,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label className="form-lab"> Ciudad </label> 
-            <input className="form-inp" placeholder = "Ciudad"
+            <label className="form-lab2"> Ciudad </label> 
+            <input className="form-inp2" placeholder = "Ciudad"
             value = {
                 CiudServ
             }
@@ -150,8 +151,8 @@ const Contrato = (props) => {
             }
             />
             
-            <label className="form-lab"> Direccion </label> 
-            <input className="form-inp" placeholder = "Dirección"
+            <label className="form-lab2"> Direccion </label> 
+            <input className="form-inp2" placeholder = "Dirección"
             value = {
                 DirectServ
             }
@@ -160,8 +161,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label className="form-lab"> Observación </label> 
-            <input className="form-inp" placeholder = "Observación"
+            <label className="form-lab2"> Observación </label> 
+            <input className="form-inp2" placeholder = "Observación"
             value = {
                 ObServ
             }
@@ -170,8 +171,8 @@ const Contrato = (props) => {
             }
             />
 
-            <label className="form-lab"> Costo </label> 
-            <input className="form-inp" placeholder = "Costo"
+            <label className="form-lab2"> Costo </label> 
+            <input className="form-inp2" placeholder = "Costo"
             value = {
                 CostServ
             }

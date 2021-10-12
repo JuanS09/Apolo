@@ -1,4 +1,4 @@
-.Contenedor .Formulario .form-header .form-titulo{
+.Contened .Formular .form-head .form-titu{
     font-weight: normal;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #070706;
@@ -6,11 +6,11 @@
     text-align: center;
 }
 
-.Contenedor .Formulario .form-header .form-titulo span{
+.Contened .Formular .form-head .form-titu span{
     color:#fff;
 }
 
-.Contenedor .Formulario{
+.Contened .Formular{
     background: rgba(24, 98, 209, 0.979);
     width: 90%;
     max-width: 500px;
@@ -21,14 +21,14 @@
     border-radius: 3px;
 }
 
-.Contenedor .Formulario .form-label{
+.Contened .Formular .form-lab{
     display: block;
     color: #000000e1;
     font-family: sans-serif;
     position: relative;
 }
 
-.Contenedor .Formulario .form-input{
+.Contened .Formular .form-inp{
     background: rgba(245, 237, 237, 0.932);
     border: none;
     outline: none;
@@ -40,7 +40,7 @@
     color: rgb(12, 1, 1);
 }
 
-.Contenedor .Formulario .boton{
+.Contened .Formular .bot{
     width: 100%;
     font-family: sans-serif;
     outline: none;
@@ -52,6 +52,6 @@
     cursor: pointer;
     transition: all .5s ease;
 }
-.Contenedor .Formulario .boton:hover{
+.Contened .Formular .bot:hover{
     background: #f21818;
 }

@@ -38,17 +38,17 @@ const Pagos = (props) => {
         }
 
         return(
-           <div className="Contenedor">
-            <form className = "Formulario"
+           <div className="Contenedo">
+            <form className = "Formulari"
             onSubmit = {
                 Validar
             } >
             
-            <div className="form-header">
-                <h1 className="form-titulo"> Pagos </h1>
+            <div className="form-heade">
+                <h1 className="form-titul"> Registro de Pagos </h1>
             </div>
-            < label className="form-label"> Número </label> 
-            <input className="form-input" placeholder = "Número de Contrato"
+            < label className="form-labe"> Número </label> 
+            <input className="form-inpu" placeholder = "Número de Contrato"
             value = {
                 NumeroContrato
             }
@@ -57,8 +57,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label className="form-label"> Nombre </label> 
-            <input className="form-input" placeholder = "Nombre Cliente"
+            <label className="form-labe"> Nombre </label> 
+            <input className="form-inpu" placeholder = "Nombre Cliente"
             value = {
                 NombreCliente
             }
@@ -67,8 +67,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label className="form-label"> Apellidos </label> 
-            <input className="form-input" placeholder = "Apellidos Cliente"
+            <label className="form-labe"> Apellidos </label> 
+            <input className="form-inpu" placeholder = "Apellidos Cliente"
             value = {
                 ApellidoCliente
             }
@@ -77,8 +77,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label className="form-label"> Dirección </label> 
-            <input className="form-input" placeholder = "Dirección Cliente"
+            <label className="form-labe"> Dirección </label> 
+            <input className="form-inpu" placeholder = "Dirección Cliente"
             value = {
                 DirecciónCliente
             }
@@ -87,8 +87,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label className="form-label"> Subtotal </label> 
-            <input className="form-input" placeholder = "Subtotal"
+            <label className="form-labe"> Subtotal </label> 
+            <input className="form-inpu" placeholder = "Subtotal"
             value = {
                 Subtotal
             }
@@ -97,8 +97,8 @@ const Pagos = (props) => {
             }
             />
 
-            <label className="form-label"> Total </label> 
-            <input className="form-input" placeholder = "Total"
+            <label className="form-labe"> Total </label> 
+            <input className="form-inpu" placeholder = "Total"
             value = {
                 Total
             }
@@ -107,7 +107,7 @@ const Pagos = (props) => {
             }
             />
 
-            <Button className="boton" variant = "contained"
+            <Button className="boto" variant = "contained"
             color = "primary"
             component = "span"
             onClick = {handleAgregarClick}>

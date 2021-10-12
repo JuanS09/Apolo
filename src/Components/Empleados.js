@@ -38,18 +38,18 @@ const Empleados = (props) => {
         }
 
         return(
-           <div className="Contenedor">
-            <form className = "Formulario"
+           <div className="Contened">
+            <form className = "Formular"
             onSubmit = {
                 Validar
             } >
 
-            <div className="form-header">
-                <h1 className="form-titulo"> Registro Nuevo Empleado </h1>
+            <div className="form-head">
+                <h1 className="form-titu"> Registro de Empleado </h1>
             </div>
 
-            < label className="form-label"> Cédula </label> 
-            <input className="form-input" placeholder = "Cédula Empleado"
+            < label className="form-lab"> Cédula </label> 
+            <input className="form-inp" placeholder = "Cédula Empleado"
             value = {
                 Cédula
             }
@@ -58,8 +58,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label className="form-label"> Nombre </label> 
-            <input className="form-input" placeholder = "Nombre Empleado"
+            <label className="form-lab"> Nombre </label> 
+            <input className="form-inp" placeholder = "Nombre Empleado"
             value = {
                 Nombre
             }
@@ -68,8 +68,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label className="form-label"> Apellidos </label> 
-            <input className="form-input" placeholder = "Apellidos Empleado"
+            <label className="form-lab"> Apellidos </label> 
+            <input className="form-inp" placeholder = "Apellidos Empleado"
             value = {
                 Apellidos
             }
@@ -78,8 +78,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label className="form-label"> Dirección </label> 
-            <input className="form-input" placeholder = "Dirección Empleado"
+            <label className="form-lab"> Dirección </label> 
+            <input className="form-inp" placeholder = "Dirección Empleado"
             value = {
                 Dirección
             }
@@ -88,8 +88,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label className="form-label"> Ciudad </label> 
-            <input className="form-input" placeholder = "Ciudad Empleado"
+            <label className="form-lab"> Ciudad </label> 
+            <input className="form-inp" placeholder = "Ciudad Empleado"
             value = {
                 Ciudad
             }
@@ -98,8 +98,8 @@ const Empleados = (props) => {
             }
             />
 
-            <label className="form-label"> Teléfono </label> 
-            <input className="form-input" placeholder = "Teléfono Empleado"
+            <label className="form-lab"> Teléfono </label> 
+            <input className="form-inp" placeholder = "Teléfono Empleado"
             value = {
                 Teléfono
             }
@@ -108,7 +108,7 @@ const Empleados = (props) => {
             }
             />
 
-            <Button className="boton" 
+            <Button className="bot" 
             variant = "contained"
             color = "primary"
             component = "span"
