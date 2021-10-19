@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import './styles/Contrato.css';
+import 'firebase/firestore';
+import TContrato from './Tables/TContrato';
 
 const Contrato = (props) => {
+    const [listaContrato, setListaContrato] = useState([]);
     const [Cédula, setCedula] = useState("");
     const [Nombre, setNombre] = useState("");
     const [Apellidos, setApellidos] = useState("");
@@ -19,6 +22,52 @@ const Contrato = (props) => {
 
     let ContratoId = '';
     if (props.match) ContratoId = props.match.params.ContratoId;
+
+    const listardatos = async () =>{
+        const querySnapshot = await getDocs(collection(fs, "Contrato"));
+        querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+    }
+    useEffect(() => {
+        listardatos()
+        }, [])
+    
+    const getContrato = async () => {
+        let obj;
+        let lista = []
+        const querySnapshot = await fs.collection("Contrato").get();
+        querySnapshot.forEach((doc) => {
+            obj = doc.data()
+            obj.id = doc.id
+            lista.push(obj) 
+        });
+        setListaContrato(lista)
+    }
+    
+    const addEmpleado = async () => {
+        const obj = {Cédula, Nombre, Apellidos, Dirección, Ciudad, Teléfono, Servicio, CiudServ, 
+            DirectServ, ObServ, CostServ}
+        const fsRef = await fs.collection("Contrato").add(obj)
+        console.log(fsRef.id)
+        clearInput()
+        getContrato()
+    }
+    
+    const clearInput = () => {
+        setCedula('')
+        setNombre('')
+        setApellidos('')
+        setDirección('')
+        setCiudad('')
+        setTeléfono('')
+        setServicio('')
+        setCiudServ('')
+        setDirectServ('')
+        setObServ('')
+        setCostServ('')
+    }
 
     const handleAgregarClick = (e) => {
         e.preventDefault();
@@ -190,7 +239,21 @@ const Contrato = (props) => {
             </Button>
             </form>
             </div>
+            { <div>
+                {listaContrato.map((Empleados, index) => {
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{Empleados.Cedula}</td>
+                        <td>{Empleados.Nombre}</td>
+                        <td>{Empleados.Apellidos}</td>
+                        <td>{Empleados.Dirección}</td>
+                        <td>{Empleados.Ciudad}</td>
+                        <td>{Empleados.Teléfono}</td>
+                    </tr>
+                })}
+            </div>}
             </div>
+            <TContrato/>
             </>
         )
     

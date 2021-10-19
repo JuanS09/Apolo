@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import './styles/Pagos.css';
+import 'firebase/firestore';
+import TPagos from './Tables/TPagos';
 
 const Pagos = (props) => {
+    const [listaPagos, setListaPagos] = useState([]);
     const [NumeroContrato, setNumeroContrato] = useState("");
     const [NombreCliente, setNombreCliente] = useState("");
     const [ApellidoCliente, setApellidoCliente] = useState("");
@@ -14,6 +17,46 @@ const Pagos = (props) => {
 
     let PagosId = '';
     if (props.match) PagosId = props.match.params.PagosId;
+
+    const listardatos = async () =>{
+        const querySnapshot = await getDocs(collection(fs, "Empleados"));
+        querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+    }
+    useEffect(() => {
+        listardatos()
+        }, [])
+    
+    const getPagos = async () => {
+        let obj;
+        let lista = []
+        const querySnapshot = await fs.collection("Pagos").get();
+        querySnapshot.forEach((doc) => {
+            obj = doc.data()
+            obj.id = doc.id
+            lista.push(obj) 
+        });
+        setListaPagos(lista)
+    }
+    
+    const addEmpleado = async () => {
+        const obj = {NumeroContrato, NombreCliente, ApellidoCliente, DirecciónCliente, Subtotal, Total}
+        const fsRef = await fs.collection("Pagos").add(obj)
+        console.log(fsRef.id)
+        clearInput()
+        getPagos()
+    }
+    
+    const clearInput = () => {
+        setNumeroContrato('')
+        setNombreCliente('')
+        setApellidoCliente('')
+        setDirecciónCliente('')
+        setSubtotal('')
+        setTotal('')
+    }
 
     const handleAgregarClick = (e) => {
         e.preventDefault();
@@ -38,6 +81,7 @@ const Pagos = (props) => {
         }
 
         return(
+            <>
            <div className="Contenedo">
             <form className = "Formulari"
             onSubmit = {
@@ -114,7 +158,22 @@ const Pagos = (props) => {
             Agregar 
             </Button> 
             </form>
+            <TPagos/>
             </div> 
+            { <div>
+                {listaPagos.map((Empleados, index) => {
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{Empleados.Cedula}</td>
+                        <td>{Empleados.Nombre}</td>
+                        <td>{Empleados.Apellidos}</td>
+                        <td>{Empleados.Dirección}</td>
+                        <td>{Empleados.Ciudad}</td>
+                        <td>{Empleados.Teléfono}</td>
+                    </tr>
+                })}
+            </div>}
+            </>
         )
     
 }

@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {fs} from '../firebase'
 import {Button} from '@material-ui/core';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import './styles/Empleados.css';
+import 'firebase/firestore';
+import TEmpleados from './Tables/TEmpleados';
+
 
 const Empleados = (props) => {
+    const [listaEmpleados, setListaEmpleados] = useState([]);
     const [Cédula, setCedula] = useState("");
     const [Nombre, setNombre] = useState("");
     const [Apellidos, setApellidos] = useState("");
@@ -15,8 +19,48 @@ const Empleados = (props) => {
     let EmpleadoId = '';
     if (props.match) EmpleadoId = props.match.params.EmpleadoId;
 
+    const listardatos = async () =>{
+        const querySnapshot = await getDocs(collection(fs, "Empleados"));
+        querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+    }
+    useEffect(() => {
+        listardatos()
+        }, [])
+    
+    const getEmpleados = async () => {
+        let obj;
+        let lista = []
+        const querySnapshot = await fs.collection("Empleados").get();
+        querySnapshot.forEach((doc) => {
+            obj = doc.data()
+            obj.id = doc.id
+            lista.push(obj) 
+        });
+        setListaEmpleados(lista)
+    }
+    
+    const addEmpleado = async () => {
+        const obj = {Cédula, Nombre, Apellidos, Dirección, Ciudad, Teléfono}
+        const fsRef = await fs.collection("Empleados").add(obj)
+        console.log(fsRef.id)
+        clearInput()
+        getEmpleados()
+    }
+    
+    const clearInput = () => {
+        setCedula('')
+        setNombre('')
+        setApellidos('')
+        setDirección('')
+        setCiudad('')
+        setTeléfono('')
+    }
+
     const handleAgregarClick = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         if (!EmpleadoId) {
         try {
             const docRef =  addDoc(collection(fs, "Empleados"), {
@@ -38,6 +82,7 @@ const Empleados = (props) => {
         }
 
         return(
+            <>
            <div className="Contened">
             <form className = "Formular"
             onSubmit = {
@@ -117,6 +162,28 @@ const Empleados = (props) => {
             </Button> 
             </form>
             </div> 
+           { <div>
+                {listaEmpleados.map((Empleados, index) => {
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{Empleados.Cedula}</td>
+                        <td>{Empleados.Nombre}</td>
+                        <td>{Empleados.Apellidos}</td>
+                        <td>{Empleados.Dirección}</td>
+                        <td>{Empleados.Ciudad}</td>
+                        <td>{Empleados.Teléfono}</td>
+                    </tr>
+                })}
+            </div>}
+            <TEmpleados/>
+  {/*           <div className="row">
+                {listaEmpleados.map((TEmpleados) => {
+                    return <TEmpleados Cedula={TEmpleados.Cedula} Nombre={TEmpleados.Nombre} Apellidos={TEmpleados.Apellidos}
+                    Dirección={TEmpleados.Dirección} Ciudad={TEmpleados.Ciudad} Teléfono={TEmpleados.Teléfono} /> 
+                })}
+            </div> */}
+            
+            </>
         )
     
 }
