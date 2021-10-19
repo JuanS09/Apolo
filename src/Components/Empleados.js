@@ -81,6 +81,7 @@ const Empleados = (props) => {
             e.preventDefault();
         }
 
+
         return(
             <>
            <div className="Contened">
@@ -175,14 +176,9 @@ const Empleados = (props) => {
                     </tr>
                 })}
             </div>}
+
             <TEmpleados/>
-  {/*           <div className="row">
-                {listaEmpleados.map((TEmpleados) => {
-                    return <TEmpleados Cedula={TEmpleados.Cedula} Nombre={TEmpleados.Nombre} Apellidos={TEmpleados.Apellidos}
-                    Dirección={TEmpleados.Dirección} Ciudad={TEmpleados.Ciudad} Teléfono={TEmpleados.Teléfono} /> 
-                })}
-            </div> */}
-            
+                     
             </>
         )
     
