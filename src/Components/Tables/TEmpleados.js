@@ -44,7 +44,6 @@ export default function TEmpleados() {
       obj = doc.data()
       obj.id = doc.id
       arrays.push(obj)
-      console.log(arrays, "sasefrdgtf")
       setlista(arrays)
 // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
@@ -58,10 +57,10 @@ useEffect(() => {
     
     <TableContainer component={Paper}>
       
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ minWidth: 500 }} aria-label="TEmpleado">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Cédula</StyledTableCell>
+            <StyledTableCell aling="center">Cédula</StyledTableCell>
             <StyledTableCell align="right">Nombre</StyledTableCell>
             <StyledTableCell align="right">Apellidos</StyledTableCell>
             <StyledTableCell align="right">Dirección</StyledTableCell>
@@ -72,23 +71,24 @@ useEffect(() => {
         
         <TableBody>
         {lista?<>
-        {console.log(arrays,"sddssss")}
           {lista.map((listardatos) => 
             <StyledTableRow key={listardatos.cedula}>
               {console.log(listardatos)}
               <StyledTableCell component="th" >
-                {listardatos.Cédula}
+
               </StyledTableCell>
               <StyledTableCell align="right">{listardatos.Cédula}</StyledTableCell>
               <StyledTableCell align="right">{listardatos.Nombre}</StyledTableCell>
               <StyledTableCell align="right">{listardatos.Apellidos}</StyledTableCell>
               <StyledTableCell align="right">{listardatos.Dirección}</StyledTableCell>
               <StyledTableCell align="right">{listardatos.Ciudad}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Teléfono}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Teléfono}</StyledTableCell>              
             </StyledTableRow>
             
           )}
+          
           </>:'no hay datos'}
+          
         </TableBody>
        
       </Table>

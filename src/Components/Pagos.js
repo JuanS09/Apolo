@@ -4,7 +4,7 @@ import {Button} from '@material-ui/core';
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import './styles/Pagos.css';
 import 'firebase/firestore';
-import TPagos from './Tables/TPagos';
+import TPagos from "./Tables/TPagos"
 
 const Pagos = (props) => {
     const [listaPagos, setListaPagos] = useState([]);
@@ -158,6 +158,8 @@ const Pagos = (props) => {
             Agregar 
             </Button> 
             </form>
+            <br></br>
+            <br></br>
             <TPagos/>
             </div> 
             { <div>

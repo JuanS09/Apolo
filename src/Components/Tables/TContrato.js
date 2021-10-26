@@ -1,5 +1,5 @@
-import React from 'react'
-import { styled } from '@mui/material/styles';
+import React, {useEffect} from 'react'
+import { styled} from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -7,6 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { getDocs, collection } from '@firebase/firestore';
+import { fs } from '../../firebase';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -28,49 +30,70 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(Nombre, Apellido, Servicio, Costo, Telefono, Direccion) {
-  return { Nombre, Apellido, Servicio, Costo, Telefono, Direccion };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function TContrato() {
+  const [lista, setlista] = React.useState([]);
+  const arrays = []
+  let obj;
+
+  
+  const listardatos = async () =>{
+    const querySnapshot = await getDocs(collection(fs, "Contrato"));
+    querySnapshot.forEach((doc) => {
+      obj = doc.data()
+      obj.id = doc.id
+      arrays.push(obj)
+      setlista(arrays)
+// doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+});
+}
+useEffect(() => {
+    listardatos()
+    }, [])
+
   return (
+    
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      
+      <Table sx={{ minWidth: 500 }} aria-label="Contrato">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Nombre</StyledTableCell>
-            <StyledTableCell align="right">Apellido</StyledTableCell>
-            <StyledTableCell align="right">servicio</StyledTableCell>
-            <StyledTableCell align="right">Costo</StyledTableCell>
-            <StyledTableCell align="right">Teléfono</StyledTableCell>
+            <StyledTableCell aling="center">Cédula</StyledTableCell>
+            <StyledTableCell align="right">Nombre</StyledTableCell>
+            <StyledTableCell align="right">Apellidos</StyledTableCell>
             <StyledTableCell align="right">Dirección</StyledTableCell>
+            <StyledTableCell align="right">Ciudad</StyledTableCell>
+            <StyledTableCell align="right">Teléfono</StyledTableCell>
           </TableRow>
         </TableHead>
+        
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.Nombre}>
-              <StyledTableCell component="th" scope="row">
-                {row.Nombre}
+        {lista?<>
+          {lista.map((listardatos) => 
+            <StyledTableRow key={listardatos.cedula}>
+              {console.log(listardatos)}
+              <StyledTableCell component="th" >
+
               </StyledTableCell>
-              <StyledTableCell align="right">{row.Nombre}</StyledTableCell>
-              <StyledTableCell align="right">{row.Apellido}</StyledTableCell>
-              <StyledTableCell align="right">{row.Servicio}</StyledTableCell>
-              <StyledTableCell align="right">{row.Costo}</StyledTableCell>
-              <StyledTableCell align="right">{row.Telefono}</StyledTableCell>
-              <StyledTableCell align="right">{row.Direccion
-              }</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Cédula}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Nombre}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Apellidos}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Dirección}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Ciudad}</StyledTableCell>
+              <StyledTableCell align="right">{listardatos.Teléfono}</StyledTableCell>              
             </StyledTableRow>
-          ))}
+            
+          )}
+          
+          </>:'no hay datos'}
+          
         </TableBody>
+       
       </Table>
+     
     </TableContainer>
+    
   );
 } 
