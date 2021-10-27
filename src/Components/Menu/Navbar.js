@@ -31,7 +31,7 @@ function Navbar(){
     return (
         <>
             <nav className='navbar'>
-                <Link to='/Home' className='navbar-logo'>
+                <Link to='/' className='navbar-logo'>
                 TV Cable Acoyapa Apolo 11
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
@@ -39,7 +39,7 @@ function Navbar(){
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/Home' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             INICIO
                         </Link>
                     </li>
