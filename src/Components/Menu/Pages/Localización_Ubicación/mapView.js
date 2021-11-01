@@ -1,17 +1,23 @@
 import React from 'react'
-import { MapContainer, TileLayer} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
-import '../Localización_Ubicación/mapView.css'
+import './Ubicacion.css'
+import L from 'leaflet'
 
-export default function MapView() {
-    return (
-        <div>
-            <MapContainer center={[11.9722159,-85.1731216]} zoom={13}>
-                <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-            </MapContainer>
-        </div>
-    )
+const position = [11.9724145, -85.1728966]
+
+const MapView = () =>{
+    return <MapContainer center={position} zoom={13}>
+        <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+            <Popup>
+                TV Cable Acoyapa <br /> Apolo 11
+            </Popup>
+        </Marker>
+  </MapContainer>
 }
+
+export default MapView;
