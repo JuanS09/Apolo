@@ -1,5 +1,7 @@
 import React from 'react'
+import Footer from './Localización_Ubicación/footer';
 import MapView from'./Localización_Ubicación/mapView'
+
 export default function Ubicacion(){
     return (
         <>
@@ -7,7 +9,7 @@ export default function Ubicacion(){
                 <h1 className='Ubicacion'>UBICANOS</h1>
                 <MapView/>
             </div>
-
+            <Footer/>
             
         </>
     );

@@ -1,11 +1,23 @@
 import React from 'react';
+import Cards from './Slider_Home/cards';
+import Footer from './Slider_Home/footer';
+import HeroSection from './Slider_Home/heroSection';
 
-export default function Home(){
+const Home = () => {
     return (
         <>
-            <h1 className='Home'>Home</h1> 
+            <div className= 'Home'>
+                <HeroSection />
+            </div>
+            <div>
+            <Cards/>
+            </div>
+            <div>
+            <Footer/>
+            </div>
         </>
            
     );
 }
 
+export default Home;

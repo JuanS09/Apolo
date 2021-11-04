@@ -32,7 +32,7 @@ function Navbar(){
         <>
             <nav className='navbar'>
                 <Link to='/' className='navbar-logo'>
-                TV Cable Acoyapa Apolo 11
+                    <img src='https://scontent.fmga3-1.fna.fbcdn.net/v/t31.18172-8/11219474_580880788718685_213548138517917174_o.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=wKGH9XbEGnwAX-2sXad&_nc_ht=scontent.fmga3-1.fna&oh=edce0fb51b21677e08aab1a19950e98d&oe=61AA9C00'/>
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>

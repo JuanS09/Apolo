@@ -4,6 +4,7 @@ import './Estilo_Nosotros/Nosotros.css'
 import image1 from '../Images/image-1.png'
 import image2 from '../Images/image-2.jpg'
 import image3 from '../Images/image-3.png'
+import Footer from './Localización_Ubicación/footer'
 
 export default function Nosotros(){
     return (
@@ -40,7 +41,7 @@ export default function Nosotros(){
                     </div>
                 </div>
             </div>
-
+            <Footer/>
             
 
             

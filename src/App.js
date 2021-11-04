@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+
+import { RutasComponentes } from './Components/Routes/Rutas';
+
 import Navbar from './Components/Menu/Navbar';
 
 import Ubicacion from './Components/Menu/Pages/Ubicación';
@@ -21,7 +24,9 @@ function App () {
         <Route path='/InSeAdministrador' exact component={InSeAdministrador} />
 
       </Switch>
+      <RutasComponentes />
     </Router>
+    
   )
 }
 
