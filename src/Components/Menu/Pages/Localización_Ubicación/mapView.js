@@ -25,7 +25,11 @@ class MapView extends React.Component{
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={position} />
+                <Marker position={position} >
+                    <Popup>
+                        TV Cable Acoyapa Apolo 11
+                    </Popup>
+                </Marker>
         </MapContainer>
     }
 }
