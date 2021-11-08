@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import { RutasComponentes } from './Components/Routes/Rutas';
+
+//import AppCliente from './Components/Menu_Cliente/Appclientes'; 
+//import AppAdmin from './Components/Menu_Administrador/Appadmin';
+      //Estos dos import son para observar los menus de los dos tipos de usuarios
 
 import Navbar from './Components/Menu/Navbar';
 
@@ -22,11 +25,8 @@ function App () {
         <Route path='/nosotros' exact component={Nosotros} />
         <Route path='/InSeCliente' exact component={InSeCliente} />
         <Route path='/InSeAdministrador' exact component={InSeAdministrador} />
-
       </Switch>
-      <RutasComponentes />
     </Router>
-    
   )
 }
 

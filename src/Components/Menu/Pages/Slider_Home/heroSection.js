@@ -4,7 +4,10 @@ import './estilo_Home.css'
 export default function HeroSection() {
     return (
         <div className='hero-container'>
-            <h1>TV Cable Acoyapa Apolo 11</h1>
+            <h2>"NO TENER APOLO 11, ES COMO NO VIVIR EN CHONTALES"</h2>
+            
         </div>
+        
+            
     )
 }

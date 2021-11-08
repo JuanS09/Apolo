@@ -7,7 +7,7 @@ function Footer() {
     <div className='footer-container'>
         <section className='footer-subscription'>
             <h1 className='footer-subscription-heading'>
-            TV Cable Acoyapa Apolo 11
+            TV Cable Acoyapa Apolo 11 <br/><br/> Número telefónico: 2518-0355 
             </h1>
         </section>
         <section class='social-media'>

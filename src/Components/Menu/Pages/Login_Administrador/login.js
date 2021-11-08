@@ -1,11 +1,13 @@
 import React from "react";
 import loginIma from "./images/login.svg";
+import fs from '../../../../firebase'
 
 export class LoginA extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  
   render() {
     return (
       <div className="base-container" ref={this.props.containerRef}>
@@ -16,8 +18,8 @@ export class LoginA extends React.Component {
           </div>
           <div className="form">
             <div className="form-group">
-              <label htmlFor="email">Correo Electrónico</label>
-              <input type="text" name="email" placeholder="correo electrónico" />
+              <label htmlFor="nombreusuario">Nombre de Usuario</label>
+              <input type="text" name="nombreusuario" placeholder="nombre de usuario" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Contraseña</label>
