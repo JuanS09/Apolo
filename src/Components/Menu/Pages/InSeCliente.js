@@ -1,6 +1,7 @@
 import React from 'react'
 import './Login_Cliente/estilo_Cliente.css'
-import {Login, Register} from './Login_Cliente/index'
+import Login from './Login_Cliente/login'
+import Register from './Login_Cliente/register';
 
 class InSeCliente extends React.Component {
     constructor(props) {

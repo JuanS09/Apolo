@@ -1,5 +1,6 @@
 import React from "react";
 import loginImg from "./images/login.svg";
+import './estilo_LoginReg.css';
 
 export class Login extends React.Component {
   constructor(props) {
