@@ -17,6 +17,7 @@ import Home from './Components/Menu/Pages/Home';
 
 function App () {
   return (
+    //<AppCliente/>
     <Router>
       <Navbar />
       <Switch>
