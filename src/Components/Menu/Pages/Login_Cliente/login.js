@@ -2,14 +2,11 @@ import React from "react";
 import loginImg from "./images/login.svg";
 import './estilo_LoginReg.css';
 
-export class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Login =()=> {
+  
 
-  render() {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div className="base-container">
         <div className="header">INICIO DE SESIÓN</div>
         <div className="content">
           <div className="image">
@@ -33,5 +30,7 @@ export class Login extends React.Component {
         </div>
       </div>
     );
-  }
+
 }
+
+export default Login

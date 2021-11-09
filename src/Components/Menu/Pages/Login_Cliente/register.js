@@ -2,19 +2,12 @@ import React from "react";
 import loginImg from "./images/login.svg";
 import './estilo_LoginReg.css';
 
-export class Register extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+const Register=()=> {
+  
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div className="base-container">
         <div className="header">REGISTRO DE USUARIO</div>
         <div className="content">
-          {/* <div className="image">
-            <img src={loginImg} />
-          </div> */}
           <div className="form">
             <div className="form-group">
               <label htmlFor="numerocontrato">Número de Contrato</label>
@@ -41,5 +34,7 @@ export class Register extends React.Component {
         </div>
       </div>
     );
-  }
+
 }
+
+export default Register;
