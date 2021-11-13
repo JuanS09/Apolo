@@ -83,10 +83,10 @@ const Pagos = (props) => {
 
         return( <>
         <br/>
-        <h2 className='encabezado'>REGISTRO DE PAGOS</h2>
+        <h2 className='encabezadoP'>REGISTRO DE PAGOS</h2>
         <br/>
-        <div className='Contenedor'>  
-            <form className = "formula" onSubmit = { Validar } >
+        <div className='ContenedorP'>  
+            <form className = "formulaP" onSubmit = { Validar } >
                     <div className='formulario-cedula'>
                         < label className="form-labP"> CÉDULA </label> 
                         <div className="form-grupo-inpP">

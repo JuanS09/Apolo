@@ -17,6 +17,7 @@
     line-height: 45px;
     padding: 0 10px 0 10px;
     transition: 0.3s ease all;
+    font-size: 18px;
 }
 
 .container-4A input#searchA:focus{

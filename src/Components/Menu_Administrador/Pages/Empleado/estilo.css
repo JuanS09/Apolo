@@ -33,6 +33,7 @@ gap: 10px;
     line-height: 45px;
     padding: 0 10px 0 10px;
     transition: 0.3s ease all;
+    font-size: 18px;
 }
 
 .form-inpE:focus{

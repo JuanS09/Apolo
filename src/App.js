@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 
-//import AppCliente from './Components/Menu_Cliente/Appclientes'; 
-//import AppAdmin from './Components/Menu_Administrador/Appadmin';
+import AppCliente from './Components/Menu_Cliente/Appclientes'; 
+import AppAdmin from './Components/Menu_Administrador/Appadmin';
       //Estos dos import son para observar los menus de los dos tipos de usuarios
 
 import Navbar from './Components/Menu/Navbar';
@@ -18,17 +18,17 @@ import Home from './Components/Menu/Pages/Home';
 function App () {
   return (
     //<AppCliente/>
-    //<AppAdmin/>
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/ubicacion' exact component={Ubicacion} />
-        <Route path='/nosotros' exact component={Nosotros} />
-        <Route path='/InSeCliente' exact component={InSeCliente} />
-        <Route path='/InSeAdministrador' exact component={InSeAdministrador} />
-      </Switch>
-    </Router>
+    <AppAdmin/>
+    // <Router>
+    //   <Navbar />
+    //   <Switch>
+    //     <Route path='/' exact component={Home} />
+    //     <Route path='/ubicacion' exact component={Ubicacion} />
+    //     <Route path='/nosotros' exact component={Nosotros} />
+    //     <Route path='/InSeCliente' exact component={InSeCliente} />
+    //     <Route path='/InSeAdministrador' exact component={InSeAdministrador} />
+    //   </Switch>
+    // </Router>
   )
 }
 

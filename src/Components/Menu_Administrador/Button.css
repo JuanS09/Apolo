@@ -2,19 +2,19 @@
     --primary: #1888ff;
   }
   
-  .btn {
+  .btnAd {
     padding: 8px 8px;
     border-radius: 4px;
     outline: none;
     border: none;
-    font-size: 17px;
+    font-size: 18px;
     color: #fff;
     cursor: pointer;
     background-color: var(--primary);
   }
   
-  .btn:hover {
-    padding: 8px 8px;
+  .btnAd:hover {
+    padding: 4px 4px;
     transition: all 0.3s ease-out;
     background-color: transparent;
     color: #fff;

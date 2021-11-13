@@ -85,14 +85,14 @@ const Contrato = (props) => {
 
         return( <>
         <br/>
-        <h2 className='encabezado'>REGISTRO DE CLIENTES</h2>
+        <h2 className='encabezadomin'>REGISTRO DE CLIENTES</h2>
         <br/>
-        <div className='Contenedor'>  
-            <form className = "formula" onSubmit = { Validar } >
+        <div className='Contenedormin'>  
+            <form className = "formulamin" onSubmit = { Validar } >
                     <div className='formulario-cedula'>
-                        < label className="form-lab"> CÉDULA </label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Cédula"
+                        < label className="form-labmin"> CÉDULA </label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Cédula"
                             value = {
                                 Cedula
                             }
@@ -103,9 +103,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-nombre'>
-                        <label className="form-lab"> NOMBRES</label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Nombres"
+                        <label className="form-labmin"> NOMBRES</label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Nombres"
                             value = {
                                 Nombres
                             }
@@ -116,9 +116,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-apellido'>
-                        <label className="form-lab"> APELLIDOS</label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Apellidos"
+                        <label className="form-labmin"> APELLIDOS</label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Apellidos"
                             value = {
                                 Apellidos
                             }
@@ -129,9 +129,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-direccion'>
-                        <label className="form-lab"> DIRECCIÓN</label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Dirección"
+                        <label className="form-labmin"> DIRECCIÓN</label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Dirección"
                             value = {
                                 Dirección
                             }
@@ -142,9 +142,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-telefono'>
-                        <label className="form-lab"> TELÉFONO</label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Teléfono"
+                        <label className="form-labmin"> TELÉFONO</label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Teléfono"
                             value = {
                                 Teléfono
                             }
@@ -155,9 +155,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-descripción'>
-                        <label className="form-lab"> DESCRIPCIÓN DEL SERVICIO </label> 
-                        <div className="form-grupo-inp">
-                            <input className="form-inp" placeholder = "Descripción del servicio"
+                        <label className="form-labmin"> DESCRIPCIÓN DEL SERVICIO </label> 
+                        <div className="form-grupo-inpmin">
+                            <input className="form-inpmin" placeholder = "Descripción del servicio"
                             value = {
                                 DescripciónServicio
                             }
@@ -168,9 +168,9 @@ const Contrato = (props) => {
                         </div>
                     </div>
                     <div className='formulario-costo'>
-                        <label className="form-lab"> COSTO DEL SERVICIO</label>
-                        <div className="form-grupo-inp"> 
-                            <input className="form-inp" placeholder = "Costo del servicio"
+                        <label className="form-labmin"> COSTO DEL SERVICIO</label>
+                        <div className="form-grupo-inpmin"> 
+                            <input className="form-inpmin" placeholder = "Costo del servicio"
                             value = {
                                 CostoServicio
                             }
@@ -180,8 +180,8 @@ const Contrato = (props) => {
                             />
                         </div>
                     </div>
-                    <div className="form-grupo-form-btn-enviar">
-                        <button className="bt"
+                    <div className="form-grupo-form-btn-enviarmin">
+                        <button className="btmin"
                         onClick = {handleAgregarClick}>
                         GUARDAR 
                         </button>

@@ -33,6 +33,7 @@ gap: 10px;
     line-height: 45px;
     padding: 0 10px 0 10px;
     transition: 0.3s ease all;
+    font-size: 20px;
 }
 
 .form-inpR:focus{
@@ -60,14 +61,4 @@ gap: 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-}
-
-.form-mensaje{
-    font-size: 14px;
-    color: red;
-    display: none;
-}
-
-.form-mensaje-activo{
-    display: block;
 }
