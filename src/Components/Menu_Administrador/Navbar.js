@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { Button } from './Button';
 
 function Navbar(){
     const [click, setClick] = useState(false);
@@ -23,31 +24,28 @@ function Navbar(){
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     
                     <li className='nav-item'>
-                        <Link to='/Reporte_averias' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/contrato' className='nav-links' onClick={closeMobileMenu}>
                             CONTRATO
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Lista_pago' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/empleado' className='nav-links' onClick={closeMobileMenu}>
                             EMPLEADOS
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Lista_pago' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/pago' className='nav-links' onClick={closeMobileMenu}>
                             PAGOS
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Lista_pago' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/averia_listado' className='nav-links' onClick={closeMobileMenu}>
                             AVERIAS
                         </Link>
                     </li>
-                    <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            CERRAR SESION 
-                        </Link>
-                    </li>
+                    
                 </ul>
+                <Button/>
             </nav>
         </>
     )

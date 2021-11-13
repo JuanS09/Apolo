@@ -1,17 +1,17 @@
 import React from "react";
 import loginImg from "./images/login.svg";
 import './estilo_LoginReg.css';
-
 const Register=()=> {
   
-    return (
+  
+  return (
       <div className="base-container">
         <div className="header">REGISTRO DE USUARIO</div>
         <div className="content">
           <div className="form">
             <div className="form-group">
               <label htmlFor="numerocontrato">Número de Contrato</label>
-              <input type="text" name="numerocontrato" placeholder="número de contrato" />
+              <input type="text" name="numerocontrato" placeholder="número de contrato" required/>
             </div>
             <div className="form-group">
               <label htmlFor="nombrecompleto">Nombre Completo</label>
@@ -19,11 +19,11 @@ const Register=()=> {
             </div>
             <div className="form-group">
               <label htmlFor="correoelectronico">Correo Electrónico</label>
-              <input type="text" name="correoelectronico" placeholder="correo electrónico" />
+              <input type="text" name="correoelectronico" placeholder="correo electrónico"/>
             </div>
             <div className="form-group">
               <label htmlFor="contraseña">Contraseña</label>
-              <input type="text" name="contraseña" placeholder="contraseña" />
+              <input type="text" name="contraseña" placeholder="contraseña"/>
             </div>
           </div>
         </div>

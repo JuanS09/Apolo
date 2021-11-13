@@ -5,19 +5,18 @@ import './Appadmin.css';
 import Navbar from './Navbar';
 
 import Contrato from './Pages/contrato';
-import Empleados from './Pages/empleados';
-import Pagos from './Pages/pagos'
-import Averias_listado from './Pages/averias_listado';
-
+import Empleado from "./Pages/empleado";
+import Pago from './Pages/pago'
+import Averia_Listado from './Pages/averia_listado'
 function AppAdmin () {
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/contrato' exact component={Contrato} />
-        <Route path='/empleados' exact component={Empleados} />
-        <Route path='/pagos' exact component={Pagos}/>
-        <Route path='/averias_listados' exact component={Averias_listado}/>
+        <Route path='/Contrato' exact component={Contrato}/>
+        <Route path='/Empleado' exact component={Empleado}/>
+        <Route path='/Pago' exact component={Pago}/>
+        <Route path='/Averia_Listado' exact component={Averia_Listado}/>
       </Switch>
     </Router>
     

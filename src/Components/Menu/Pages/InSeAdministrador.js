@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login_Administrador/estilo_Administrador.css'
-import {LoginA} from './Login_Administrador/login'
+import LoginA from './Login_Administrador/login'
   
 class InSeAdministrador extends React.Component{
     constructor(props){

@@ -33,24 +33,24 @@ class InSeCliente extends React.Component {
       const current = isLogginActive ? "REGISTRATE" : "INICIO DE SESIÓN";
       const currentActive = isLogginActive ? "INICIO DE SESIÓN" : "REGISTRATE";
       return (
-        <div className="App">
-          <div className="login">
-            <div className="container" ref={ref => (this.container = ref)}>
-              {isLogginActive && (
-                <Login containerRef={ref => (this.current = ref)} />
-              )}
-              {!isLogginActive && (
-                <Register containerRef={ref => (this.current = ref)} />
-              )}
+          <div className="App">
+            <div className="login">
+              <div className="container" ref={ref => (this.container = ref)}>
+                {isLogginActive && (
+                  <Login containerRef={ref => (this.current = ref)} />
+                )}
+                {!isLogginActive && (
+                  <Register containerRef={ref => (this.current = ref)} />
+                )}
+              </div>
+              <RightSide
+                current={current}
+                currentActive={currentActive}
+                containerRef={ref => (this.rightSide = ref)}
+                onClick={this.changeState.bind(this)}
+              />
             </div>
-            <RightSide
-              current={current}
-              currentActive={currentActive}
-              containerRef={ref => (this.rightSide = ref)}
-              onClick={this.changeState.bind(this)}
-            />
           </div>
-        </div>
       );
     }
   }

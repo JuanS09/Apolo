@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from './Button';
 import './Navbar.css';
 
 function Navbar(){
@@ -31,12 +32,9 @@ function Navbar(){
                             PAGOS REALIZADOS
                         </Link>
                     </li>
-                    <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            CERRAR SESION 
-                        </Link>
-                    </li>
+                    
                 </ul>
+                <Button/>
             </nav>
         </>
     )

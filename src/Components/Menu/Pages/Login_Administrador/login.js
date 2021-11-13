@@ -1,38 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import loginIma from "./images/login.svg";
-import fs from '../../../../firebase'
+import {fs} from '../../../../firebase';
+import './estilo_Login.css'
 
-export class LoginA extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  
-  render() {
+const LoginA = () => {
+
     return (
-      <div className="base-container" ref={this.props.containerRef}>
-        <div className="header">INICIO DE SESIÓN</div>
-        <div className="content">
-          <div className="image">
+      <div className="base-containerA">
+        <div className="headerA">INICIO DE SESIÓN</div>
+        <div className="contentA">
+          <div className="imageA">
             <img src={loginIma} />
           </div>
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="nombreusuario">Nombre de Usuario</label>
-              <input type="text" name="nombreusuario" placeholder="nombre de usuario" />
+          <div className="formA">
+            <div className="form-groupA">
+              <label htmlFor="emailA">Correo Electrónico</label>
+              <input type="email" name="emailA" placeholder="correo electrónico"/>
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <input type="password" name="password" placeholder="contraseña" />
+            <div className="form-groupA">
+              <label htmlFor="passwordA">Contraseña</label>
+              <input type="password" name="passwordA" placeholder="contraseña"/>
             </div>
           </div>
         </div>
-        <div className="footer">
-          <button type="button" className="btn">
+        <div className="footerA">
+          <button type="button" className="btnA">
             ENTRAR
           </button>
         </div>
       </div>
     );
-  }
 }
+
+export default LoginA;

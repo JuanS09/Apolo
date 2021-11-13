@@ -8,7 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getDocs, collection } from '@firebase/firestore';
-import { fs } from '../../firebase';
+import { fs } from '../../../../firebase';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import {Button, ButtonGroup} from '@material-ui/core';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -32,14 +34,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-export default function TEmpleados() {
+export default function TAverias() {
   const [lista, setlista] = React.useState([]);
   const arrays = []
   let obj;
 
   
   const listardatos = async () =>{
-    const querySnapshot = await getDocs(collection(fs, "Empleados"));
+    const querySnapshot = await getDocs(collection(fs, "Reporte Averia"));
     querySnapshot.forEach((doc) => {
       obj = doc.data()
       obj.id = doc.id
@@ -57,33 +59,33 @@ useEffect(() => {
     
     <TableContainer component={Paper}>
       
-      <Table sx={{ minWidth: 500 }} aria-label="TEmpleado">
+      <Table sx={{ minWidth: 200 }} aria-label="TAverias">
         <TableHead>
           <TableRow>
-            <StyledTableCell aling="center">Cédula</StyledTableCell>
-            <StyledTableCell align="right">Nombre</StyledTableCell>
-            <StyledTableCell align="right">Apellidos</StyledTableCell>
-            <StyledTableCell align="right">Dirección</StyledTableCell>
-            <StyledTableCell align="right">Ciudad</StyledTableCell>
-            <StyledTableCell align="right">Teléfono</StyledTableCell>
+          <StyledTableCell align="center">ID</StyledTableCell>  
+            <StyledTableCell align="center">Número de contrato</StyledTableCell>
+            <StyledTableCell align="center">Problema</StyledTableCell>
+            <StyledTableCell align="center">Dirección</StyledTableCell>
+            <StyledTableCell align="center">Tipo de avería</StyledTableCell>
+            <StyledTableCell align="center">Acciones</StyledTableCell>
           </TableRow>
         </TableHead>
         
         <TableBody>
         {lista?<>
           {lista.map((listardatos) => 
-            <StyledTableRow key={listardatos.cedula}>
+            <StyledTableRow key={listardatos.Cedula}>
               {console.log(listardatos)}
-              <StyledTableCell component="th" >
-
-              </StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Cédula}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Nombre}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Apellidos}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Dirección}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Ciudad}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Teléfono}</StyledTableCell>              
+              <StyledTableCell align="justify">{listardatos.id}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.NumeroContrato}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.DescripciónProblema}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.DirecciónCliente}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.TipoAveria}</StyledTableCell>
+              <ButtonGroup>
+                <Button align="center"><DeleteOutlinedIcon/></Button>
+            </ButtonGroup>          
             </StyledTableRow>
+            
             
           )}
           

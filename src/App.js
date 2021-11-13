@@ -18,6 +18,7 @@ import Home from './Components/Menu/Pages/Home';
 function App () {
   return (
     //<AppCliente/>
+    //<AppAdmin/>
     <Router>
       <Navbar />
       <Switch>

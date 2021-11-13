@@ -5,7 +5,7 @@ import './Appclientes.css';
 import Navbar from './Navbar';
 
 import Lista_Pago from './Pages/Lista_pago';
-import Reporte_averias from './Pages/Reporte_averias';
+import RepAverias from './Pages/Reporte_averias';
 
 function AppCliente () {
   return (
@@ -13,7 +13,7 @@ function AppCliente () {
       <Navbar />
       <Switch>
         <Route path='/Lista_pago' exact component={Lista_Pago} />
-        <Route path='/Reporte_averias' exact component={Reporte_averias} />
+        <Route path='/Reporte_averias' exact component={RepAverias} />
       </Switch>
     </Router>
     

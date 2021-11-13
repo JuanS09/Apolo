@@ -1,9 +1,9 @@
-import {initializeApp} from 'firebase/app';
+import {initializeApp} from 'firebase/app'
 import {getFirestore} from 'firebase/firestore'
 import {getStorage} from 'firebase/storage'
 import 'firebase/firestore'
 import 'firebase/compat/auth'
-
+import 'firebase/auth'
 
 
 const firebaseConfig = {

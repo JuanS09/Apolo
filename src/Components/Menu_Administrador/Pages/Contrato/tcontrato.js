@@ -7,8 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import {Button, ButtonGroup} from '@material-ui/core';
 import { getDocs, collection } from '@firebase/firestore';
-import { fs } from '../../firebase';
+import { fs } from '../../../../firebase';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,8 +32,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-
 
 export default function TContrato() {
   const [lista, setlista] = React.useState([]);
@@ -57,15 +58,18 @@ useEffect(() => {
     
     <TableContainer component={Paper}>
       
-      <Table sx={{ minWidth: 500 }} aria-label="Contrato">
+      <Table sx={{ minWidth: 200}} aria-label="Contrato">
         <TableHead>
           <TableRow>
-            <StyledTableCell aling="center">Cédula</StyledTableCell>
-            <StyledTableCell align="right">Nombre</StyledTableCell>
-            <StyledTableCell align="right">Apellidos</StyledTableCell>
-            <StyledTableCell align="right">Dirección</StyledTableCell>
-            <StyledTableCell align="right">Ciudad</StyledTableCell>
-            <StyledTableCell align="right">Teléfono</StyledTableCell>
+          <StyledTableCell align="center">Número de contrato</StyledTableCell>
+            <StyledTableCell align="center">Cédula</StyledTableCell>
+            <StyledTableCell align="center">Nombre</StyledTableCell>
+            <StyledTableCell align="center">Apellidos</StyledTableCell>
+            <StyledTableCell align="center">Dirección</StyledTableCell>
+            <StyledTableCell align="center">Teléfono</StyledTableCell>
+            <StyledTableCell align="center">Descripción</StyledTableCell>
+            <StyledTableCell align="center">Costo</StyledTableCell>
+            <StyledTableCell align="center">Acciones</StyledTableCell>
           </TableRow>
         </TableHead>
         
@@ -74,15 +78,19 @@ useEffect(() => {
           {lista.map((listardatos) => 
             <StyledTableRow key={listardatos.cedula}>
               {console.log(listardatos)}
-              <StyledTableCell component="th" >
-
-              </StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Cédula}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Nombre}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Apellidos}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Dirección}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Ciudad}</StyledTableCell>
-              <StyledTableCell align="right">{listardatos.Teléfono}</StyledTableCell>              
+              
+              <StyledTableCell align="justify">{listardatos.id}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.Cedula}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.Nombres}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.Apellidos}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.Dirección}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.Teléfono}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.DescripciónServicio}</StyledTableCell>
+              <StyledTableCell align="justify">{listardatos.CostoServicio}</StyledTableCell>
+              <ButtonGroup>
+                <Button align="justify"><CreateOutlinedIcon/></Button>
+                <Button align="justify"><DeleteOutlinedIcon/></Button>
+              </ButtonGroup>    
             </StyledTableRow>
             
           )}
