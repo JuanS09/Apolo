@@ -13,7 +13,7 @@ const Contrato = (props) => {
     const [Apellidos, setApellidos] = useState("");
     const [Dirección, setDirección] = useState("");
     const [Teléfono, setTeléfono] = useState("");
-    const [DescripciónServicio, setDescripcionServicio] = useState("");
+    const [DescripciónServicio, setDescripciónServicio] = useState("");
     const [CostoServicio, setCostoServicio] = useState("");
 
     let ContratoId = '';
@@ -43,7 +43,7 @@ const Contrato = (props) => {
     }
     
     const addContrato = async () => {
-        const obj = {Cedula, Nombres, Apellidos, Dirección, Teléfono, DescripcionServicio, CostoServicio}
+        const obj = {Cedula, Nombres, Apellidos, Dirección, Teléfono, DescripciónServicio, CostoServicio}
         const fsRef = await fs.collection("Contrato").add(obj)
         console.log(fsRef.id)
         clearInput()
@@ -56,7 +56,7 @@ const Contrato = (props) => {
         setApellidos('')
         setDirección('')
         setTeléfono('')
-        setDescripcionServicio('')
+        setDescripciónServicio('')
         setCostoServicio('')
     }
 
@@ -162,7 +162,7 @@ const Contrato = (props) => {
                                 DescripciónServicio
                             }
                             onChange = {
-                                (e) => setDescripcionServicio(e.target.value)
+                                (e) => setDescripciónServicio(e.target.value)
                             }
                             />
                         </div>

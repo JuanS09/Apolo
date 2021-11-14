@@ -38,11 +38,11 @@ const Pagos = (props) => {
             obj.id = doc.id
             lista.push(obj) 
         });
-        setListaContrato(lista)
+        setListaPagos(lista)
     }
     
     const addPago = async () => {
-        const obj = {CedulaCliente, NombresCliente, ApellidosCliente, DirecciónCliente, Retraso, Subtotal, Total}
+        const obj = {CedulaCliente, NombresCliente, ApellidosCliente, DirecciónCliente, Retraso, Subtotal}
         const fsRef = await fs.collection("Pagos").add(obj)
         console.log(fsRef.id)
         clearInput()
@@ -56,7 +56,6 @@ const Pagos = (props) => {
         setDirecciónCliente('')
         setRetraso('')
         setSubtotal('')
-        setTotal('')
     }
 
     const handleAgregarClick = (e) => {
