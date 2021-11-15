@@ -15,7 +15,7 @@ import {
     fs,
 } from './../../firebase';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext('');
 
 export const AuthProvider = (props) => {
     const {children} = props;
@@ -26,7 +26,7 @@ export const AuthProvider = (props) => {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if(user) {
-                const userDoc = doc(fs, "Administrador", user.uid);
+                const userDoc = doc(fs, "users", user.uid);
                 getDoc(userDoc)
                 .then(snap => {
                     if(snap.exists()) {
