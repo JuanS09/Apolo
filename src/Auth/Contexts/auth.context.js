@@ -15,7 +15,7 @@ import {
     fs,
 } from './../../firebase';
 
-export const AuthContext = createContext('');
+export const AuthContext = createContext("");
 
 export const AuthProvider = (props) => {
     const {children} = props;

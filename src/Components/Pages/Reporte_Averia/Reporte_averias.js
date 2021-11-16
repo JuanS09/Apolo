@@ -35,10 +35,10 @@ export const RepAverias = (props) => {
 
         return( <>
         <br/>
-        <h2 className='encabezado'>REGISTRO DE AVERÍAS</h2>
+        <h2 className='encabezadoR'>REGISTRO DE AVERÍAS</h2>
         <br/>
-        <div className='Contenedor'>  
-            <form className = "formula" onSubmit = { Validar } >
+        <div className='ContenedorR'>  
+            <form className = "formulaR" onSubmit = { Validar } >
                     <div className='formulario-numero'>
                         < label className="form-labR"> NÚMERO DE CONTRATO </label> 
                         <div className="form-grupo-inpR">
