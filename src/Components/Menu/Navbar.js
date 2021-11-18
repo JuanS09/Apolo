@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import ImageLogo from './../../Assets/images/Logo Apolo 11.png'
 import './Navbar.css';
-import { Button } from './Button';
 import {
     AuthContext
 } from './../../Auth/Contexts/auth.context';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 function Navbar(){
 
@@ -16,6 +16,47 @@ function Navbar(){
 
     const closeMobileMenu = () => setClick(false);
 
+    const auth = getAuth();
+
+    const [userdata, setuserdata] = useState();
+
+    const [user, setuser] = useState(false);
+
+    const cerrarsesion=()=> {
+
+    signOut(auth).then(() => {
+        setuser(false)
+        // Sign-out successful.
+        }).catch((error) => {
+        // An error happened.
+        });
+
+    }
+
+    
+
+console.log(user)
+    useEffect(() => {
+        
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Iniciado ")
+                const email= user.email;
+                setuserdata(email)
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+                const uid = user.uid;
+                console.log (uid)
+                setuser(true)
+    // ...
+            } else {
+                console.log("No iniciado sesion")
+                setuser(false)
+    // User is signed out
+    // ...
+            }
+});
+    }, [])
 
     return (
         <>
@@ -43,67 +84,50 @@ function Navbar(){
                             NOSOTROS
                         </Link>
                     </li>
-                </ul>
-                <Button/>
-                {/* <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    
+                    {
+                    userdata==="tvcableapolo11@gmail.com"?<>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            INICIO
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/Contrato' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/Contrato' className='nav-links' >
                             CONTRATO
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Empleado' className='nav-links' onClick={closeMobileMenu}>
-                            EMPLEADOS
-                        </Link>
+                    <Link to='/Empleado' className='nav-links' >
+                        EMPLEADO
+                    </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Pago' className='nav-links' onClick={closeMobileMenu}>
-                            PAGOS
-                        </Link>
+                    <Link to='/Pago' className='nav-links' >
+                        PAGOS
+                    </Link>
                     </li>
-                    <li className='nav-item'>
-                        <Link to='/Averia_Listado' className='nav-links' onClick={closeMobileMenu}>
-                            AVERÍAS
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
-                            CERRAR SESIÓN
-                        </Link>
-                    </li>
-                </ul> */}
-                {/* <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    
-                    <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            INICIO
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/Reporte_Averia' className='nav-links' onClick={closeMobileMenu}>
-                            REPORTE AVERÍA
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/Lista_Pago' className='nav-links' onClick={closeMobileMenu}>
-                            ESTADO DE PAGO
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
-                            CERRAR SESIÓN
-                        </Link>
-                    </li>
-                </ul> */}
+                    </>: 
+                    <>
+                    <Link to='/Lista_Pago' className='nav-links' >
+                    LISTA PAGOS
+                    </Link>
+                    <Link to='/Reporte_Averia' className='nav-links' >
+                    REPORTE AVERIAS
+                    </Link>
+                    </>
+                }
+                    { user?
+                    <li>
+                    <button className='btnout' onClick={cerrarsesion}>CERRAR SESIÓN</button>
+                     </li>
+                    :
+                    <li>
+                    <Link to='/inicioSesion'>
+                    <button className='btnAd'>INICIO SESIÓN</button>
+                    </Link>
+                </li>
+                }
+
+                </ul>
             </nav>
         </>
     )
 }
 
 export default Navbar;
+

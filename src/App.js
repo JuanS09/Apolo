@@ -8,7 +8,7 @@ import Navbar from './Components/Menu/Navbar'
 import { Home } from "./Components/Pages/Inicio/Home";
 import { Ubicacion } from "./Components/Pages/Ubicacion/Ubicación";
 import { Nosotros } from "./Components/Pages/Nosotros/Nosotros";
-import { Sesion } from "./Components/Pages/Inicio_Sesion/InicioSesion";
+import { inicioSesion } from "./Components/Pages/Inicio_Sesion/InicioSesion";
 import { Contrato } from "./Components/Pages/Contrato/contrato";
 import { Empleado } from "./Components/Pages/Empleado/empleado";
 import { Pagos } from "./Components/Pages/Pago/pago";
@@ -19,13 +19,14 @@ import { Lista_Pago } from "./Components/Pages/Lista_Pago/Lista_pago";
 
 function App () {
   return (
+    <AuthProvider>
     <Router>
       <Navbar />
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/Ubicacion' exact component={Ubicacion} />
         <Route path='/Nosotros' exact component={Nosotros} />
-        <Route path='/Sesion' exact component={Sesion} />
+        <Route path='/inicioSesion' exact component={inicioSesion} />
         <Route path='/Contrato' exact component={Contrato} />
         <Route path='/Empleado' exact component={Empleado} />
         <Route path='/Pago' exact component={Pagos} />
@@ -34,6 +35,7 @@ function App () {
         <Route path='/Lista_Pago' exact component={Lista_Pago} />
       </Switch>
     </Router>
+    </AuthProvider>
   )
 }
 

@@ -1,2 +1,5 @@
-Correo Electronico: tvcable@apolo.com
-Contraseña: Apolo11TvCable
+Correo Electronico: tvcableapolo11@gmail.com
+Contraseña: tvcableapolo11
+
+Correo usuario: prueba01@gmail.com
+Contraseña usuario: prueba01

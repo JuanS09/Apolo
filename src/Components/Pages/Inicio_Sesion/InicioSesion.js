@@ -3,7 +3,7 @@ import './InicioSesion.css'
 import Login from './login'
 import Register from './register';
 
-export class Sesion extends React.Component {
+export class inicioSesion extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
