@@ -85,32 +85,37 @@ console.log(user)
                         </Link>
                     </li>
                     {
-                    userdata==="tvcableapolo11@gmail.com"?<>
-                    <li className='nav-item'>
-                        <Link to='/Contrato' className='nav-links' >
-                            CONTRATO
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                    <Link to='/Empleado' className='nav-links' >
-                        EMPLEADO
-                    </Link>
-                    </li>
-                    <li className='nav-item'>
-                    <Link to='/Pago' className='nav-links' >
-                        PAGOS
-                    </Link>
-                    </li>
-                    </>: 
-                    <>
-                    <Link to='/Lista_Pago' className='nav-links' >
-                    LISTA PAGOS
-                    </Link>
-                    <Link to='/Reporte_Averia' className='nav-links' >
-                    REPORTE AVERIAS
-                    </Link>
-                    </>
-                }
+                        user? <>
+                        {
+                            userdata==="tvcableapolo11@gmail.com"?<>
+                            <li className='nav-item'>
+                                <Link to='/Contrato' className='nav-links' >
+                                    CONTRATO
+                                </Link>
+                            </li>
+                            <li className='nav-item'>
+                            <Link to='/Empleado' className='nav-links' >
+                                EMPLEADO
+                            </Link>
+                            </li>
+                            <li className='nav-item'>
+                            <Link to='/Pago' className='nav-links' >
+                                PAGOS
+                            </Link>
+                            </li>
+                            </>: userdata!=="tvcableapolo11@gmail.com"?
+                            <>
+                            <Link to='/Lista_Pago' className='nav-links' >
+                            LISTA PAGOS
+                            </Link>
+                            <Link to='/Reporte_Averia' className='nav-links' >
+                            REPORTE AVERIAS
+                            </Link>
+                            </>:null
+                        }
+                       </> :null
+                    }
+                   
                     { user?
                     <li>
                     <button className='btnout' onClick={cerrarsesion}>CERRAR SESIÓN</button>

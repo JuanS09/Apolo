@@ -13,6 +13,8 @@ import { fs } from '../../../firebase';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
+import { doc, deleteDoc } from "firebase/firestore";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,6 +57,10 @@ useEffect(() => {
     listardatos()
     }, [])
 
+    const borrar =async(id)=>{
+      await deleteDoc(doc(fs, "Contrato", id));
+    }
+
   return (
     
     <TableContainer component={Paper}>
@@ -90,7 +96,7 @@ useEffect(() => {
               <StyledTableCell align="justify">{listardatos.CostoServicio}</StyledTableCell>
               <ButtonGroup>
                 <Button color="primary" align="justify"><CreateOutlinedIcon/></Button>
-                <Button color="warning" align="justify"><DeleteOutlinedIcon/></Button>
+                <Button onClick={()=>{borrar(listardatos.id)}} color="warning" align="justify"><DeleteOutlinedIcon/></Button>
                 <Button color="success" align="justify"><PictureAsPdfOutlinedIcon/></Button>
               </ButtonGroup>    
             </StyledTableRow>

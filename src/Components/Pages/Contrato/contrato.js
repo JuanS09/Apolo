@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {fs} from '../../../firebase'
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, updateDoc,doc } from "firebase/firestore";
 import 'firebase/firestore';
 import './contrato.css'
 import Busqueda from './busqueda';
@@ -78,7 +78,19 @@ export const Contrato = (props) => {
             console.error("Error adding document: ", e);
           } 
           }
+          else {
+            const docUpdate =  updateDoc(collection(fs, "Contrato"), {
+                Cedula,
+                Nombres,
+                Apellidos,
+                Dirección,
+                Teléfono,
+                DescripciónServicio,
+                CostoServicio
+            });
+          }
         }
+        
         const Validar = e => {
             e.preventDefault();
         }
